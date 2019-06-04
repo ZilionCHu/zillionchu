@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: zillionchu-eureka
+server:
+  port: 7000
+eureka:
+  server:
+    #保护模式 开发模式
+    enable-self-preservation: false
+  instance:
+    hostname: zillionchu7000.com
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+       #defaultZone：

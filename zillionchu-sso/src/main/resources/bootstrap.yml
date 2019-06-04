@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: zillionchu-sso
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: ZILLIONCHU-CONFIG
+      profile: test
+
+eureka:
+  client:
+    service-url:
+      #defaultZone: http://zillionchu7000.com:7000/eureka
+      defaultZone: http://localhost:7000/eureka
+
+
+logging:
+    level:
+      org.springframework.cloud.netflix.feign.FeignClient: debug

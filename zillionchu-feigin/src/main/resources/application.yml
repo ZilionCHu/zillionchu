@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: zillionchu-feign
+
+server:
+  port: 9001
+eureka:
+  client:
+    service-url:
+      #defaultZone: http://zillionchu7000.com:7000/eureka
+      defaultZone: http://localhost:7000/eureka
+  instance:
+    instance-id: zillionchu-feign-9001
+    prefer-ip-address: true
+
+
+feign:
+  hystrix:
+    enabled: true
+
+
+
+logging:
+  level:
+    org.springframework.cloud.netflix.feign.FeignClient: debug
+

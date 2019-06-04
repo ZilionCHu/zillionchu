@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: zillionchu-zuul
+
+server:
+  port: 8002
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7000/eureka
+      #defaultZone: http://zillionchu7000.com:7000/eureka
+  instance:
+    instance-id: zillionchu-zuul8002
+    prefer-ip-address: true
+
+
+zuul:
+  prefix: /zillionchu
+  ignored-services: "*"
+  routes:
+        sso.serviceId: zillionchu-sso
+        sso.path: /sso/**
+  sensitive-headers:

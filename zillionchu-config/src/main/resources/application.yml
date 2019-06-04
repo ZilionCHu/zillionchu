@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: zillionchu-config
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://gitee.com/zilliochu/zilionchu-parent
+          username: 2538887088@qq.com
+          password: zxcvbnm1122
+          basedir: /Users/zillionchu/Documents/config
+          force-pull: true
+server:
+  port: 8005
+eureka:
+  client:
+    service-url:
+      #defaultZone: http://zillionchu7000.com:7000/eureka
+      defaultZone: http://localhost:7000/eureka
+  instance:
+    instance-id: zillionchu-config
+    prefer-ip-address: true
