@@ -5,7 +5,7 @@ import com.netflix.zuul.ZuulFilter;
 /**
  * @Auther: ZiLlionChu
  * @Date: 2019/3/21 10:02
- * @Description:
+ * @Description: urlFileter
  */
 public class urlFilter extends  ZuulFilter {
     @Override
