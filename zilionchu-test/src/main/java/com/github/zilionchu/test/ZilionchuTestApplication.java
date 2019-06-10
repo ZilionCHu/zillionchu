@@ -1,4 +1,4 @@
-package com.github.zilionchu.test.zilionchutest;
+package com.github.zilionchu.test;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -2,7 +2,6 @@ package com.github.zilionchu.test.zilionchutest.zExample.thread;
 
 import org.springframework.stereotype.Component;
 
-import javax.annotation.PostConstruct;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -18,7 +17,7 @@ public class UserConfig {
 
     private static final int HEALTH_CHECK_INTERVAL = 50 * 100;
 
-    @PostConstruct
+    //@PostConstruct
     public void init() {
 
         ScheduledExecutorService userThread = Executors.newScheduledThreadPool(5, new ZillionchuThreadFactory
