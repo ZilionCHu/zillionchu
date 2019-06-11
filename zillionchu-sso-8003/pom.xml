@@ -30,6 +30,13 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+
+        <!--<dependency>-->
+            <!--<groupId>com.xuxueli</groupId>-->
+            <!--<artifactId>xxl-conf-core</artifactId>-->
+            <!--<version>1.6.2-SNAPSHOT</version>-->
+        <!--</dependency>-->
+
     </dependencies>
 
     <build>
