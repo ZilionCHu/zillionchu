@@ -148,7 +148,7 @@
 					<li class="nav-click <#if pageName == "project">active</#if>" ><a href="${request.contextPath}/project"><i class="fa fa-circle-o text-yellow"></i><span>项目管理</span></a></li>
 					<li class="nav-click <#if pageName == "env">active</#if>" ><a href="${request.contextPath}/env"><i class="fa fa-circle-o text-blue"></i><span>环境管理</span></a></li>
 				</#if>
-                <li class="nav-click <#if pageName == "help">active</#if>" ><a href="${request.contextPath}/help"><i class="fa fa-circle-o text-gray"></i><span>使用教程</span></a></li>
+                <#--<li class="nav-click <#if pageName == "help">active</#if>" ><a href="${request.contextPath}/help"><i class="fa fa-circle-o text-gray"></i><span>使用教程</span></a></li>-->
 			</ul>
 		</section>
 		<!-- /.sidebar -->
@@ -157,12 +157,12 @@
 
 <#macro commonFooter >
 	<footer class="main-footer">
-		Powered by <b>XXL-CONF</b> 1.6.2-SNAPSHOT
+		Powered by <b>ZillionChu-XXL-CONF</b>
 		<div class="pull-right hidden-xs">
 			<strong>Copyright &copy; 2015-${.now?string('yyyy')} &nbsp;
-                <a href="http://www.xuxueli.com/" target="_blank" >xuxueli</a>
-                &nbsp;
-                <a href="https://github.com/xuxueli/xxl-conf" target="_blank" >github</a>
+                <#--<a href="http://www.xuxueli.com/" target="_blank" >xuxueli</a>-->
+                <#--&nbsp;-->
+                <#--<a href="https://github.com/xuxueli/xxl-conf" target="_blank" >github</a>-->
 			</strong><!-- All rights reserved. -->
 		</div>
 	</footer>

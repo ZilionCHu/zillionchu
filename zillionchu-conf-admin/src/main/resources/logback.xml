@@ -24,6 +24,17 @@
         </encoder>
     </appender>
 
+
+
+    <logger name="com.github.zillionchu.conf.admin" level="DEBUG" additivity="false">
+        <!--
+                <appender-ref ref="ACCESS-FILE" />
+        -->
+
+        <appender-ref ref="console" />
+    </logger>
+
+    <!-- TRACE < DEBUG < INFO < WARN < ERROR -->
     <root level="info">
         <appender-ref ref="console"/>
         <appender-ref ref="file"/>

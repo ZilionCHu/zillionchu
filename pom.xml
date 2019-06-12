@@ -25,6 +25,8 @@
         <module>zillionchu-config</module>
         <module>zillionchu-core</module>
         <module>zilionchu-test</module>
+        <module>zillionchu-conf-admin</module>
+        <module>zillionchu-conf-core</module>
     </modules>
 
     <properties>
@@ -78,11 +80,11 @@
                 <version>${junit.version}</version>
                 <scope>test</scope>
             </dependency>
-            <dependency>
-                <groupId>log4j</groupId>
-                <artifactId>log4j</artifactId>
-                <version>${log4j.version}</version>
-            </dependency>
+            <!--<dependency>-->
+                <!--<groupId>log4j</groupId>-->
+                <!--<artifactId>log4j</artifactId>-->
+                <!--<version>${log4j.version}</version>-->
+            <!--</dependency>-->
 
             <dependency>
                 <groupId>joda-time</groupId>
