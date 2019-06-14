@@ -19,9 +19,9 @@ public class XxlConfMirrorConf {
 
     private static String mirrorfile = null;
 
-    public static void init(String mirrorfileParam){
+    public static void init(String mirrorfileParam) {
         // valid
-        if (mirrorfileParam==null || mirrorfileParam.trim().length()==0) {
+        if (mirrorfileParam == null || mirrorfileParam.trim().length() == 0) {
             throw new XxlConfException("xxl-conf mirrorfileParam can not be empty");
         }
 
@@ -33,13 +33,16 @@ public class XxlConfMirrorConf {
      *
      * @return
      */
-    public static Map<String, String> readConfMirror(){
-        Properties mirrorProp = PropUtil.loadFileProp( mirrorfile );
-        if (mirrorProp!=null && mirrorProp.stringPropertyNames()!=null && mirrorProp.stringPropertyNames().size()>0) {
+    public static Map<String, String> readConfMirror() {
+        Properties mirrorProp = PropUtil.loadFileProp(mirrorfile);
+        if (mirrorProp != null && mirrorProp.stringPropertyNames() != null && mirrorProp.stringPropertyNames().size()
+                > 0) {
             Map<String, String> mirrorConfData = new HashMap<>();
-            for (String key: mirrorProp.stringPropertyNames()) {
+            for (String key : mirrorProp.stringPropertyNames()) {
                 mirrorConfData.put(key, mirrorProp.getProperty(key));
             }
+            logger.info("XxlConfMirrorConf>>>>>>>>>>>-------------------------------XxlConfMirrorConf--mirrorProp:",
+                    mirrorConfData.size());
             return mirrorConfData;
         }
         return null;
@@ -50,13 +53,14 @@ public class XxlConfMirrorConf {
      *
      * @param mirrorConfDataParam
      */
-    public static void writeConfMirror(Map<String, String> mirrorConfDataParam){
+    public static void writeConfMirror(Map<String, String> mirrorConfDataParam) {
         Properties properties = new Properties();
-        for (Map.Entry<String, String> confItem: mirrorConfDataParam.entrySet()) {
+        for (Map.Entry<String, String> confItem : mirrorConfDataParam.entrySet()) {
             properties.setProperty(confItem.getKey(), confItem.getValue());
         }
 
         // write mirror file
+        logger.info("zillionchu--------------------------------@@@writeFile");
         PropUtil.writeFileProp(properties, mirrorfile);
     }
 

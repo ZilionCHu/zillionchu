@@ -62,6 +62,7 @@ public class XxlConfFactory extends InstantiationAwareBeanPostProcessorAdapter
 
 	@Override
 	public void afterPropertiesSet() {
+	//System.out.println("初始化了####################################################################################");
 		XxlConfBaseFactory.init(adminAddress, env, accessToken, mirrorfile);
 	}
 
@@ -179,7 +180,8 @@ public class XxlConfFactory extends InstantiationAwareBeanPostProcessorAdapter
 		// refresh field: set or field
 		if (propertyDescriptor!=null && propertyDescriptor.getWriteMethod() != null) {
 			beanWrapper.setPropertyValue(beanField.getProperty(), value);	// support mult data types
-			logger.info(">>>>>>>>>>> xxl-conf, refreshBeanField[set] success, {}#{}:{}",
+			logger.info("XxlConfFactory183------------------------------>>>>>>>>>>> xxl-conf, refreshBeanField[set] " +
+							"success, {}#{}:{}",
 					beanField.getBeanName(), beanField.getProperty(), value);
 		} else {
 
@@ -194,7 +196,8 @@ public class XxlConfFactory extends InstantiationAwareBeanPostProcessorAdapter
 							fieldItem.setAccessible(true);
 							fieldItem.set(finalBean, valueObj);		// support mult data types
 
-							logger.info(">>>>>>>>>>> xxl-conf, refreshBeanField[field] success, {}#{}:{}",
+							logger.info("XxlConfFactory199------------------------------>>>>>>>>>>> xxl-conf, " +
+											"refreshBeanField[field] success, {}#{}:{}",
 									beanField.getBeanName(), beanField.getProperty(), value);
 						} catch (IllegalAccessException e) {
 							throw new XxlConfException(e);

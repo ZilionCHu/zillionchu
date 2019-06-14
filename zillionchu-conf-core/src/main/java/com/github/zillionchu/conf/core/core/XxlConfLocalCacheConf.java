@@ -28,7 +28,8 @@ public class XxlConfLocalCacheConf {
 
     private static Thread refreshThread;
     private static boolean refreshThreadStop = false;
-    public static void init(){
+
+    public static void init() {
 
         localCacheRepository = new ConcurrentHashMap<String, CacheNode>();
 
@@ -38,19 +39,19 @@ public class XxlConfLocalCacheConf {
         Map<String, String> mirrorConfData = XxlConfMirrorConf.readConfMirror();
 
         Map<String, String> remoteConfData = null;
-        if (mirrorConfData!=null && mirrorConfData.size()>0) {
+        if (mirrorConfData != null && mirrorConfData.size() > 0) {
             remoteConfData = XxlConfRemoteConf.find(mirrorConfData.keySet());
         }
 
-        if (mirrorConfData!=null && mirrorConfData.size()>0) {
+        if (mirrorConfData != null && mirrorConfData.size() > 0) {
             preConfData.putAll(mirrorConfData);
         }
-        if (remoteConfData!=null && remoteConfData.size()>0) {
+        if (remoteConfData != null && remoteConfData.size() > 0) {
             preConfData.putAll(remoteConfData);
         }
-        if (preConfData!=null && preConfData.size()>0) {
-            for (String preKey: preConfData.keySet()) {
-                set(preKey, preConfData.get(preKey), SET_TYPE.PRELOAD );
+        if (preConfData != null && preConfData.size() > 0) {
+            for (String preKey : preConfData.keySet()) {
+                set(preKey, preConfData.get(preKey), SET_TYPE.PRELOAD);
             }
         }
 
@@ -63,21 +64,26 @@ public class XxlConfLocalCacheConf {
                         refreshCacheAndMirror();
                     } catch (Exception e) {
                         if (!refreshThreadStop && !(e instanceof InterruptedException)) {
-                            logger.error(">>>>>>>>>> xxl-conf, refresh thread error.");
+                            logger.error
+                                    ("----zilionchu----XxlConfLocalCacheConf####################################>>>>>>>>>>" +
+                                            " " +
+                                            "xxl-conf, refresh thread error.");
                             logger.error(e.getMessage(), e);
                         }
                     }
                 }
-                logger.info(">>>>>>>>>> xxl-conf, refresh thread stoped.");
+                logger.info("XxlConfLocalCacheConf####################################>>>>>>>>>> xxl-conf, refresh " +
+                        "thread stoped.");
             }
         });
         refreshThread.setDaemon(true);
         refreshThread.start();
 
-        logger.info(">>>>>>>>>> xxl-conf, XxlConfLocalCacheConf init success.");
+        logger.info("XxlConfLocalCacheConf####################################>>>>>>>>>> xxl-conf, " +
+                "XxlConfLocalCacheConf init success.");
     }
 
-    public static void destroy(){
+    public static void destroy() {
         if (refreshThread != null) {
             refreshThreadStop = true;
             refreshThread.interrupt();
@@ -87,7 +93,7 @@ public class XxlConfLocalCacheConf {
     /**
      * local cache node
      */
-    public static class CacheNode implements Serializable{
+    public static class CacheNode implements Serializable {
         private static final long serialVersionUID = 42L;
 
         private String value;
@@ -114,18 +120,21 @@ public class XxlConfLocalCacheConf {
     /**
      * refresh Cache And Mirror, with real-time minitor
      */
-    private static void refreshCacheAndMirror() throws InterruptedException{
+    private static void refreshCacheAndMirror() throws InterruptedException {
 
-        if (localCacheRepository.size()==0) {
+
+        if (localCacheRepository.size() == 0) {
             TimeUnit.SECONDS.sleep(3);
             return;
         }
 
         // monitor
         boolean monitorRet = XxlConfRemoteConf.monitor(localCacheRepository.keySet());
+        logger.info("zillionchu----refreshCacheAndMirror----XxlConfRemoteConf.monitor----monitorRet@@@{}:",
+                monitorRet);
 
         // avoid fail-retry request too quick
-        if (!monitorRet){
+        if (!monitorRet) {
             TimeUnit.SECONDS.sleep(10);
         }
 
@@ -134,15 +143,19 @@ public class XxlConfLocalCacheConf {
         if (keySet.size() > 0) {
 
             Map<String, String> remoteDataMap = XxlConfRemoteConf.find(keySet);
-            if (remoteDataMap!=null && remoteDataMap.size()>0) {
-                for (String remoteKey:remoteDataMap.keySet()) {
+            if (remoteDataMap != null && remoteDataMap.size() > 0) {
+                for (String remoteKey : remoteDataMap.keySet()) {
                     String remoteData = remoteDataMap.get(remoteKey);
 
                     CacheNode existNode = localCacheRepository.get(remoteKey);
-                    if (existNode!=null && existNode.getValue()!=null && existNode.getValue().equals(remoteData)) {
-                        logger.debug(">>>>>>>>>> xxl-conf: RELOAD unchange-pass [{}].", remoteKey);
+                    if (existNode != null && existNode.getValue() != null && existNode.getValue().equals(remoteData)) {
+
+                        logger.info("zillionchu---existNode.getValue().equals(remoteData)--ziliionchu --" +
+                                "XxlConfLocalCacheConf####################################>>>>>>>>>> xxl-conf: RELOAD" +
+                                " unchange-pass@@@:{}", remoteKey);
+
                     } else {
-                        set(remoteKey, remoteData, SET_TYPE.RELOAD );
+                        set(remoteKey, remoteData, SET_TYPE.RELOAD);
                     }
 
                 }
@@ -152,19 +165,20 @@ public class XxlConfLocalCacheConf {
 
         // refresh mirror: cache > mirror
         Map<String, String> mirrorConfData = new HashMap<>();
-        for (String key: keySet) {
+        for (String key : keySet) {
             CacheNode existNode = localCacheRepository.get(key);
-            mirrorConfData.put(key, existNode.getValue()!=null?existNode.getValue():"");
+            mirrorConfData.put(key, existNode.getValue() != null ? existNode.getValue() : "");
         }
         XxlConfMirrorConf.writeConfMirror(mirrorConfData);
 
-        logger.debug(">>>>>>>>>> xxl-conf, refreshCacheAndMirror success.");
+        logger.debug("XxlConfLocalCacheConf####################################>>>>>>>>>> xxl-conf, " +
+                "refreshCacheAndMirror success.");
     }
 
 
     // ---------------------- inner api ----------------------
 
-    public enum SET_TYPE{
+    public enum SET_TYPE {
         SET,        // first use
         RELOAD,     // value updated
         PRELOAD     // pre hot
@@ -179,9 +193,13 @@ public class XxlConfLocalCacheConf {
      */
     private static void set(String key, String value, SET_TYPE optType) {
         localCacheRepository.put(key, new CacheNode(value));
-        logger.info(">>>>>>>>>> xxl-conf: {}: [{}={}]", optType, key, value);
+        logger.info("XxlConfLocalCacheConf####################################>>>>>>>>>> xxl-conf: {}: [{}={}]",
+                optType, key, value);
 
         // value updated, invoke listener
+
+        // refreshCacheAndMirror
+
         if (optType == SET_TYPE.RELOAD) {
             XxlConfListenerFactory.onChange(key, value);
         }
@@ -257,7 +275,7 @@ public class XxlConfLocalCacheConf {
             logger.error(e.getMessage(), e);
         }
 
-        set(key, remoteData, SET_TYPE.SET );		// support cache null value
+        set(key, remoteData, SET_TYPE.SET);        // support cache null value
         if (remoteData != null) {
             return remoteData;
         }

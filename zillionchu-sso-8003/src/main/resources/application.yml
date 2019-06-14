@@ -1,8 +1,8 @@
 spring:
   application:
     name: zillionchu-sso
-server:
-  port: 8003
+#server:
+#  port: 8003
 
 eureka:
   client:
@@ -13,3 +13,13 @@ eureka:
     instance-id: zillionchu-sso-8003
     prefer-ip-address: true
     hostname: zillionchu-sso
+
+
+xxl:
+  conf:
+      admin:
+          address: http://localhost:8080/zillionchu-conf-admin
+      env: dev
+      access:
+          token:
+      mirrorfile: D:\project\git\zillionchu\zillionchu-sso-8003\src\main\resources\xxf-conf.properties

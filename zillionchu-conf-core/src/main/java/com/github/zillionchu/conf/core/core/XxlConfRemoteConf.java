@@ -26,10 +26,10 @@ public class XxlConfRemoteConf {
     public static void init(String adminAddress, String env, String accessToken) {
 
         // valid
-        if (adminAddress==null || adminAddress.trim().length()==0) {
+        if (adminAddress == null || adminAddress.trim().length() == 0) {
             throw new XxlConfException("xxl-conf adminAddress can not be empty");
         }
-        if (env==null || env.trim().length()==0) {
+        if (env == null || env.trim().length() == 0) {
             throw new XxlConfException("xxl-conf env can not be empty");
         }
 
@@ -60,7 +60,7 @@ public class XxlConfRemoteConf {
      * @param timeout
      * @return
      */
-    private static Map<String, Object> getAndValid(String url, String requestBody, int timeout){
+    private static Map<String, Object> getAndValid(String url, String requestBody, int timeout) {
 
         // resp json
         String respJson = BasicHttpUtil.postBody(url, requestBody, timeout);
@@ -72,7 +72,7 @@ public class XxlConfRemoteConf {
         Map<String, Object> respObj = BasicJson.parseMap(respJson);
         int code = Integer.valueOf(String.valueOf(respObj.get("code")));
         if (code != 200) {
-            logger.info("request fail, msg={}", (respObj.containsKey("msg")?respObj.get("msg"):respJson) );
+            logger.info("request fail, msg={}", (respObj.containsKey("msg") ? respObj.get("msg") : respJson));
             return null;
         }
         return respObj;
@@ -86,7 +86,7 @@ public class XxlConfRemoteConf {
      * @return
      */
     public static Map<String, String> find(Set<String> keys) {
-        for (String adminAddressUrl: XxlConfRemoteConf.adminAddressArr) {
+        for (String adminAddressUrl : XxlConfRemoteConf.adminAddressArr) {
 
             // url + param
             String url = adminAddressUrl + "/conf/find";
@@ -97,12 +97,13 @@ public class XxlConfRemoteConf {
             paramVO.setKeys(new ArrayList<String>(keys));
 
             String paramsJson = BasicJson.toJson(paramVO);
+            logger.info("XxlConfRemoteConf-------------------------------------#http-#conf-#param#json", paramsJson);
 
             // get and valid
             Map<String, Object> respObj = getAndValid(url, paramsJson, 5);
 
             // parse
-            if (respObj!=null && respObj.containsKey("data")) {
+            if (respObj != null && respObj.containsKey("data")) {
                 Map<String, String> data = (Map<String, String>) respObj.get("data");
                 return data;
             }
@@ -113,7 +114,7 @@ public class XxlConfRemoteConf {
 
     public static String find(String key) {
         Map<String, String> result = find(new HashSet<String>(Arrays.asList(key)));
-        if (result!=null) {
+        if (result != null) {
             return result.get(key);
         }
         return null;
@@ -128,7 +129,7 @@ public class XxlConfRemoteConf {
      */
     public static boolean monitor(Set<String> keys) {
 
-        for (String adminAddressUrl: XxlConfRemoteConf.adminAddressArr) {
+        for (String adminAddressUrl : XxlConfRemoteConf.adminAddressArr) {
 
             // url + param
             String url = adminAddressUrl + "/conf/monitor";
@@ -143,7 +144,7 @@ public class XxlConfRemoteConf {
             // get and valid
             Map<String, Object> respObj = getAndValid(url, paramsJson, 60);
 
-            return respObj!=null?true:false;
+            return respObj != null ? true : false;
         }
         return false;
     }
