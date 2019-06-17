@@ -602,7 +602,7 @@ public class XxlConfNodeServiceImpl implements IXxlConfNodeService, Initializing
                 .concat(File.separator).concat(env)
                 .concat(File.separator).concat(key)
                 .concat(".properties");
-        //logger.info("--XxlConfNodeServiceImpl-----------------------------fileName{}:", fileName);
+        logger.info("--XxlConfNodeServiceImpl-----------------------------fileName{}:", fileName);
         return fileName;
     }
 
