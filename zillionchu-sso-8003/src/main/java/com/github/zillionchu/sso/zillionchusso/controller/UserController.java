@@ -1,7 +1,10 @@
 package com.github.zillionchu.sso.zillionchusso.controller;
 
 import com.github.zillionchu.conf.core.annotation.XxlConf;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
@@ -13,6 +16,7 @@ import javax.servlet.http.HttpServletRequest;
  */
 @RequestMapping
 @RestController
+@Api(tags = "用户接口")
 public class UserController {
 
 //    @Autowired
@@ -22,7 +26,8 @@ public class UserController {
     @XxlConf("zillionchu-sso-8003.demo.a01")
     public String param;
 
-    @RequestMapping("/user")
+    @RequestMapping(value = "/user", method = RequestMethod.GET)
+    @ApiOperation(value = "登陆", notes = "登陆")
     public String getUser(HttpServletRequest request) {
 
 //        System.out.println("进来了。。。。。。。。8003");
@@ -35,6 +40,6 @@ public class UserController {
 
         System.out.println(param);
 
-        return request.getLocalPort() + "-Username---配置中心参数"+param;
+        return request.getLocalPort() + "-Username---配置中心参数" + param;
     }
 }
