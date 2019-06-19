@@ -8,9 +8,9 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
     <groupId>com.github.zillionchu.sso</groupId>
-    <artifactId>zillionchu-sso-8003</artifactId>
+    <artifactId>zillionchu-sso-8005</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>zillionchu-sso-8003</name>
+    <name>zillionchu-sso-8005</name>
     <description>Demo project for Spring Boot</description>
     <properties>
         <java.version>1.8</java.version>
@@ -40,12 +40,6 @@
             <!--<groupId>org.yaml</groupId>-->
             <!--<artifactId>snakeyaml</artifactId>-->
         <!--</dependency>-->
-
-        <dependency>
-            <groupId>com.github.zilionchu.core</groupId>
-            <artifactId>zillionchu-core</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
 
         <dependency>
             <groupId>com.github.zillionchu.conf.core</groupId>
