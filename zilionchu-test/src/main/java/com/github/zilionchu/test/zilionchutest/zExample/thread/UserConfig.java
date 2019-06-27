@@ -15,7 +15,7 @@ import java.util.concurrent.TimeUnit;
 public class UserConfig {
 
 
-    private static final int HEALTH_CHECK_INTERVAL = 50 * 100;
+    private static final int HEALTH_CHECK_INTERVAL = 5 * 1000;
 
     //@PostConstruct
     public void init() {
@@ -28,7 +28,7 @@ public class UserConfig {
         System.out.println("init##########################################");
 
 
-      //  Executors.new
+        //  Executors.new
     }
 
     private class userThreadCheck implements Runnable {
