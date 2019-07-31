@@ -1,4 +1,4 @@
-package com.github.zilionchu.core.zillionchucore.utils.common;
+package com.github.zilionchu.core.zillionchucore.utils.bean;
 
 import java.io.File;
 import java.io.FileFilter;

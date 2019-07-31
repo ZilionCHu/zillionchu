@@ -1,4 +1,4 @@
-package com.github.zilionchu.core.zillionchucore.utils.common;
+package com.github.zilionchu.core.zillionchucore.utils.encrypt;
 
 import org.apache.commons.codec.binary.Hex;
 

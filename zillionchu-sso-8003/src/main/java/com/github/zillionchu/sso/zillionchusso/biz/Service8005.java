@@ -1,7 +1,7 @@
 package com.github.zillionchu.sso.zillionchusso.biz;
 
 import com.alibaba.fastjson.JSONObject;
-import com.github.zilionchu.core.zillionchucore.utils.common.HttpClientUtils;
+import com.github.zilionchu.core.zillionchucore.utils.http.HttpClientUtils;
 import org.springframework.stereotype.Service;
 
 /**

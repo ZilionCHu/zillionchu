@@ -1,4 +1,4 @@
-package com.github.zilionchu.core.zillionchucore.utils.common;
+package com.github.zilionchu.core.zillionchucore.utils.bean;
 
 import org.springframework.beans.BeanWrapper;
 import org.springframework.beans.BeanWrapperImpl;
@@ -64,6 +64,7 @@ public class BeanUtils {
             if (srcValue == null) emptyNames.add(pd.getName());
         }
         String[] result = new String[emptyNames.size()];
+        System.out.println(Arrays.toString(emptyNames.toArray(result)));
         return emptyNames.toArray(result);
     }
 

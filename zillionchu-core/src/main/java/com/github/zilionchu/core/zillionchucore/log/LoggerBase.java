@@ -13,79 +13,72 @@ public interface LoggerBase {
 
     /**
      * get Logger
+     *
      * @return
      */
-    default Logger getLogger(){
-        System.out.println("1111");
+    default Logger getLogger() {
         return LoggerFactory.getLogger(this.getClass().getName());
     }
 
     /**
-     *
      * @param msg
      */
-    default void info(String msg){
+    default void info(String msg) {
         getLogger().info(msg);
     }
 
     /**
-     *
      * @param msg
      * @param obj
      */
-    default  void info(String msg, Object... obj){
-        getLogger().info(msg,obj);
+    default void info(String msg, Object... obj) {
+        getLogger().info(msg, obj);
     }
+
     /**
-     *
      * @param msg
      */
-    default void error(String msg){
+    default void error(String msg) {
         getLogger().info(msg);
     }
 
     /**
-     *
      * @param msg
      * @param obj
      */
-    default  void error(String msg, Object... obj){
-        getLogger().info(msg,obj);
+    default void error(String msg, Object... obj) {
+        getLogger().info(msg, obj);
     }
 
 
     /**
-     *
      * @param msg
      */
-    default void debug(String msg){
+    default void debug(String msg) {
         getLogger().info(msg);
     }
 
     /**
-     *
      * @param msg
      * @param obj
      */
-    default  void debug(String msg, Object... obj){
-        getLogger().info(msg,obj);
+    default void debug(String msg, Object... obj) {
+        getLogger().info(msg, obj);
     }
 
     /**
-     *
      * @param msg
      */
-    default void warn(String msg){
+    default void warn(String msg) {
         getLogger().info(msg);
     }
 
     /**
-     *
      * @param msg
      * @param obj
      */
-    default  void warn(String msg, Object... obj){
-        getLogger().info(msg,obj);
+    default void warn(String msg, Object... obj) {
+        getLogger().info(msg, obj);
     }
 
 }

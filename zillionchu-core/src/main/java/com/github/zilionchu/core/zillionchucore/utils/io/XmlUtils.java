@@ -1,4 +1,4 @@
-package com.github.zilionchu.core.zillionchucore.utils.common;
+package com.github.zilionchu.core.zillionchucore.utils.io;
 
 import org.apache.commons.io.IOUtils;
 import org.w3c.dom.Document;

@@ -1,4 +1,4 @@
-package com.github.zilionchu.core.zillionchucore.utils.common;
+package com.github.zilionchu.core.zillionchucore.utils.tool;
 
 import java.io.*;
 import java.util.Enumeration;
@@ -15,7 +15,7 @@ import java.util.zip.ZipFile;
 public class FindClassForJar {
 
     public static final String path = "D:\\task\\lib"; //jar包父目录
-    public static final String keywords = "IPushTaskService"; //关键字
+    public static final String keywords = "ActivityExecuterHelpPartiListUtil"; //关键字
     public static void main(String[] args){
         File file = new File(path);
         final Pattern p = Pattern.compile(".+\\.jar$");

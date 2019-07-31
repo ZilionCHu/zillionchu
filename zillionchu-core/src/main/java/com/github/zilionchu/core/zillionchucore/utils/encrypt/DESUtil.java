@@ -1,4 +1,4 @@
-package com.github.zilionchu.core.zillionchucore.utils.common;
+package com.github.zilionchu.core.zillionchucore.utils.encrypt;
 
 import javax.crypto.Cipher;
 import javax.crypto.SecretKey;

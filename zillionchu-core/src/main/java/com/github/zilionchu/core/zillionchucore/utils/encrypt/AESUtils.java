@@ -1,4 +1,4 @@
-package com.github.zilionchu.core.zillionchucore.utils.common;
+package com.github.zilionchu.core.zillionchucore.utils.encrypt;
 
 import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;

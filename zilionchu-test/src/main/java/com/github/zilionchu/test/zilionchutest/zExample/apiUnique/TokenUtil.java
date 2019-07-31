@@ -22,7 +22,7 @@ public class TokenUtil {
     public static boolean checkToken(String token) {
         Object o = tokenMap.get(token);
         if (o == null) {
-            return false;
+                return false;
         }
         tokenMap.remove(token);
         return true;

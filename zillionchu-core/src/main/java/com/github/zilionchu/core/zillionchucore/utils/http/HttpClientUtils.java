@@ -1,4 +1,4 @@
-package com.github.zilionchu.core.zillionchucore.utils.common;
+package com.github.zilionchu.core.zillionchucore.utils.http;
 
 import com.alibaba.fastjson.JSONObject;
 import org.apache.http.HttpEntity;
