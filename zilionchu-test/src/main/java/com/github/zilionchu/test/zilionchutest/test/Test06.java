@@ -8,12 +8,8 @@ package com.github.zilionchu.test.zilionchutest.test;
 public class Test06 {
 
     public static void main(String[] args) {
-        for (int i = 0; i < 5; i++) {
-            if (i == 2) {
-                i += 1;
-                continue;
-            }
-            System.out.println(i);
-        }
+        String mobile="18988888888";
+        String desensMobile = mobile.replaceAll("(\\d{3})\\d{4}(\\d{4})", "$1****$2");
+        System.out.println(desensMobile);
     }
 }
