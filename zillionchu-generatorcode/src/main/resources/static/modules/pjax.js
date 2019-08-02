@@ -645,7 +645,7 @@ layui.define(['jquery'], function(exports) {
 					container: container
 				}
 
-			// Find and validate container
+			// Find and valid container
 			if(options.container)
 				options.container = findContainerFor(options.container)
 

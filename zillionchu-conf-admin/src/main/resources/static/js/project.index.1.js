@@ -40,7 +40,7 @@ $(function() {
 	});
 
 
-    // jquery.validate 自定义校验
+    // jquery.valid 自定义校验
     jQuery.validator.addMethod("myValid01", function(value, element) {
         var length = value.length;
         var valid = /^[a-z][a-z0-9-]*$/;

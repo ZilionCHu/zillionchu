@@ -47,7 +47,7 @@
     <script src="${request.contextPath}/static/plugins/pace/pace.min.js"></script>
 	<#-- jquery.cookie -->
     <script src="${request.contextPath}/static/plugins/jquery/jquery.cookie.js"></script>
-    <#-- jquery.validate -->
+    <#-- jquery.valid -->
     <script src="${request.contextPath}/static/plugins/jquery/jquery.validate.min.js"></script>
 
 	<#-- layer -->

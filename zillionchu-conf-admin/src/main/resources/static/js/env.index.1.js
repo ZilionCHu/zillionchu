@@ -39,7 +39,7 @@ $(function() {
 
 	});
 
-	// jquery.validate 自定义校验
+	// jquery.valid 自定义校验
 	jQuery.validator.addMethod("validEnv", function(value, element) {
 		var length = value.length;
 		var valid = /^[a-z]*$/;

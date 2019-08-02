@@ -27,6 +27,7 @@
         <module>zilionchu-test</module>
         <module>zillionchu-conf-admin</module>
         <module>zillionchu-conf-core</module>
+        <module>zillionchu-sso-8005</module>
     </modules>
 
     <properties>
@@ -37,6 +38,8 @@
         <log4j.version>1.2.17</log4j.version>
         <lombok.version>1.16.18</lombok.version>
         <springfox-version>2.7.0</springfox-version>
+        <commons-lang3.version>3.8.1</commons-lang3.version>
+
     </properties>
 
     <dependencyManagement>
