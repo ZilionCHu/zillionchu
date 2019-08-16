@@ -13,24 +13,27 @@ public class MultiThread {
     private static int num = 0;
 
     /**
-     * static
+     * static 类级别的锁
      */
-    public static synchronized void printNum(String tag) {
-        try {
+    public void printNum(String tag) {
 
-            if (tag.equals("a")) {
-                num = 100;
-                System.out.println("tag a=100, set num over!");
-                Thread.sleep(3000);
-            } else {
-                num = 200;
-                System.out.println("tag b=200, set num over!");
+        synchronized (this) {
+            try {
+                //    int num = 0;
+                if (tag.equals("a")) {
+                    num = 100;
+                    System.out.println("tag a=100, set num over!");
+                    Thread.sleep(3000);
+                } else {
+                    num = 200;
+                    System.out.println("tag b=200, set num over!");
+                }
+
+                System.out.println("tag -----" + tag + ", num  = " + num);
+
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
-
-            System.out.println("tag -----" + tag + ", num  = " + num);
-
-        } catch (InterruptedException e) {
-            e.printStackTrace();
         }
     }
 

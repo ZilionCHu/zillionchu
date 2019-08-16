@@ -8,6 +8,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * @Date: 2019-06-10 15:42
  * @Description:
  */
+//@ConfigurationProperties
 public class TokenUtil {
 
     private static final ConcurrentHashMap<String, Object> tokenMap = new ConcurrentHashMap();

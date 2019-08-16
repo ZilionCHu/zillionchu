@@ -38,15 +38,19 @@ public class TimeUnitTest {
 
 
         long start = System.nanoTime();
+        //try {
+            //Thread.sleep(5000);
         try {
-            Thread.sleep(5000);
             TimeUnit.SECONDS.sleep( 5 );
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        // } catch (InterruptedException e) {
+          //  e.printStackTrace();
+       // }
 
         long l = TimeUnit.NANOSECONDS.toSeconds(System.nanoTime() - start);
-        System.out.println(l);
+        System.out.println("===== ："+l);
 
 
     }

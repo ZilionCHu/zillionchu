@@ -7,9 +7,24 @@ package com.github.zilionchu.test.zilionchutest.test;
  */
 public class Test06 {
 
-    public static void main(String[] args) {
-        String mobile="18988888888";
-        String desensMobile = mobile.replaceAll("(\\d{3})\\d{4}(\\d{4})", "$1****$2");
-        System.out.println(desensMobile);
+    private String Orgcode ;
+
+    public String getOrgcode() {
+        return Orgcode;
     }
+
+    public void setOrgcode(String orgcode) {
+        Orgcode = orgcode;
+    }
+
+    public static void main(String[] args) {
+        String mobile="1 8988888888";
+//        String desensMobile = mobile.replaceAll("(\\d{3})\\d{4}(\\d{4})", "$1****$2");
+//        System.out.println(desensMobile);
+
+
+        boolean whitespace = Character.isWhitespace(mobile.charAt(1));
+        System.out.println(whitespace);
+    }
+
 }
