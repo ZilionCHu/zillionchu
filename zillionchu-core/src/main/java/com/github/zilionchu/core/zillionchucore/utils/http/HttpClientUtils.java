@@ -154,4 +154,14 @@ public class HttpClientUtils {
         return jsonResult;
     }
 
+    public static void main(String[] args) {
+//        JSONObject jsonObject = new JSONObject();
+//        String sJson = jsonObject.toJSONString(agentFlowDto);
+//        JSONObject jsonObjectParam = JSONObject.parseObject(sJson);
+//        //请求筛选服务
+//        JSONObject httpResponse = HttpClientUtils.httpPost(POST_URL, jsonObjectParam);
+//        //请求返回符合推送条件，代理人ID的集合
+//        Map<String, Boolean> var6 = JSON.toJavaObject(httpResponse, Map.class);
+    }
+
 }
