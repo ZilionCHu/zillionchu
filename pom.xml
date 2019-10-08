@@ -12,6 +12,12 @@
     <artifactId>zillionchu</artifactId>
     <packaging>pom</packaging>
     <version>0.0.1-SNAPSHOT</version>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-autoconfigure</artifactId>
+        </dependency>
+    </dependencies>
     <name>zillionchu</name>
     <description>Demo project for Spring Boot</description>
     <modules>

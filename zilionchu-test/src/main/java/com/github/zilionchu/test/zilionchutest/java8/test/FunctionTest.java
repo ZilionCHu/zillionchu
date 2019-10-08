@@ -1,4 +1,4 @@
-package com.github.zilionchu.test.zilionchutest.java8;
+package com.github.zilionchu.test.zilionchutest.java8.test;
 
 import java.util.function.Function;
 

@@ -1,7 +1,9 @@
 package com.github.zilionchu.test.zilionchutest.test;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @Auther: ZiLlionChu
@@ -27,11 +29,13 @@ public class Test09 extends Thread {
 
         /// UUID.randomUUID()
 
+        List l = new ArrayList<String>();
+
         String orderId = prefix() + "-" + String.format("%1$04d", 100);
 
 //        Test09 t = new Test09();
 //        t.start();
-//        try {
+//        try {s
 //            Thread.sleep(1000);
 //        } catch (InterruptedException e) {
 //            e.printStackTrace();
@@ -39,6 +43,12 @@ public class Test09 extends Thread {
 //        isRuning = false;
 
         System.out.println(orderId);
+
+        System.out.println(Integer.MAX_VALUE);
+
+        System.out.println(2 << 3);
+
+        //876560183
 
     }
 
